@@ -1,0 +1,30 @@
+[project]
+name = "strava"
+version = "0.1.0"
+description = "Download and analyze personal Strava data"
+authors = [
+    { name = "Dushyanth Narayanan", email = "147379978+dnarayan-personal@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "folium>=0.20.0",
+    "pandas>=3.0.5",
+    "streamlit>=1.63.0",
+    "streamlit-folium>=0.27.4",
+]
+
+[project.scripts]
+strava-ingest = "strava.ingest:main"
+strava-cluster-routes = "strava.build_routes:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
